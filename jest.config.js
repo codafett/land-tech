@@ -28,7 +28,12 @@ module.exports = {
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: ['/dist', '/coverage'],
+  coveragePathIgnorePatterns: [
+    '/dist',
+    '/coverage',
+    '/src/index.js',
+    'src/utils/csvFileHandler/csvFileHandler.js',
+  ],
 
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'babel',
@@ -43,14 +48,14 @@ module.exports = {
 
   // An object that configures minimum threshold enforcement for coverage results
   // TODO: Put the coverage back in!!
-  // coverageThreshold: {
-  //   global: {
-  //     branches: 80,
-  //     functions: 80,
-  //     lines: 80,
-  //     statements: 80,
-  //   },
-  // },
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,

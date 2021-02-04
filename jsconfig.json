@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "module": "commonJS",
     "experimentalDecorators": true,
     "target": "es6",
     // This is the line you want to add
