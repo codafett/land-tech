@@ -11,10 +11,9 @@ describe('Processor', () => {
     afterEach(() => {
       extractOptionsSpy.mockRestore();
     });
-    it('should call argsUtils with process args', () => {
-      process.argv = [];
-      processor.start();
-      expect(extractOptionsSpy).toHaveBeenCalledWith([]);
+    it('should THROW No Options Provided when argsUtils returns an empty object', () => {
+      extractOptionsSpy.mockReturnValue({});
+      expect(() => processor.start()).toThrow('No options provided');
     });
   });
 });
