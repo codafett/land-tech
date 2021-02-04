@@ -1,3 +1,4 @@
+import companyRelations from '../data/companyRelations/companyRelationRepository';
 import argsUtils from '../utils/argsUtils/argsUtils';
 
 const Processor = () => ({
@@ -7,6 +8,8 @@ const Processor = () => ({
       // No options supplied
       throw new Error('No options provided');
     }
+
+    companyRelations.load();
   },
 });
 

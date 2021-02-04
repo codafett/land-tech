@@ -1,14 +1,13 @@
 {
-  "name": "land-tech",
+  "name": "landtree",
   "version": "1.0.0",
   "description": "Corporate Land Ownership",
   "main": "./dist/index.js",
   "bin": {
-    "land-tech": "./dist/index.js"
+    "landtree": "./dist/index.js"
   },
   "scripts": {
-    "start": "babel-node ./src/index.js",
-    "start:build": "npm run build && babel-node ./dist/index.js",
+    "start": "npm run build && babel-node ./dist/index.js",
     "test:tdd": "jest --watch",
     "test:no-coverage": "jest",
     "test:nc": "jest",
@@ -48,7 +47,6 @@
     "prettier": "^2.2.1"
   },
   "dependencies": {
-    "commander": "^7.0.0",
-    "yargs": "^16.2.0"
+    "commander": "^7.0.0"
   }
 }
