@@ -1,6 +1,9 @@
+import argsUtils from '../utils/argsUtils/argsUtils';
+
 const Processor = () => ({
   start() {
-    console.log('started!');
+    const cliOptions = argsUtils.extractOptions(process.argv);
+    console.log(`Processor.start: ${JSON.stringify(cliOptions)}`);
   },
 });
 

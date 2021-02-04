@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import argsUtils from './utils/argsUtils/argsUtils';
+import processor from './processor/processor';
 
-const cliOptions = argsUtils.extractOptions(process.argv);
-
-console.log(cliOptions);
+processor.start();
