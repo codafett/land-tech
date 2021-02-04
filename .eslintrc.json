@@ -1,0 +1,23 @@
+{
+  "env": {
+    "es6": true,
+    "jest/globals": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended",
+    "plugin:jest/style"
+  ],
+  "plugins": ["jsx-a11y", "jest", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-underscore-dangle": ["error"],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
+  },
+  "parser": "babel-eslint"
+}
