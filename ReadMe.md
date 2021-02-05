@@ -1,5 +1,11 @@
 # Challenge: Corporate Land Ownership
 
+Due to time constraints the aggregator and logger were created without tests.
+
+Assumptions:
+
+1. Given a company Id it's assumed that we need to traverse to the top level parent of that company and report on ALL child records down to and potentially past the company id provided
+
 ## Install guide - Production mode
 
 1. Using a command prompt navigate to the project root folder
