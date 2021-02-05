@@ -1,13 +1,15 @@
 import fs from 'fs';
 import path from 'path';
 import csvFileHandler from '../../utils/csvFileHandler/csvFileHandler';
-import landOwnershipRepository from './landOwnershipRepository';
+import LandOwnershipRepository from './landOwnershipRepository';
 
 jest.mock('fs');
 
 describe('LandOwnershipRepository', () => {
+  let landOwnershipRepository;
   let readCsvFileSpy;
   beforeEach(() => {
+    landOwnershipRepository = LandOwnershipRepository();
     readCsvFileSpy = jest.spyOn(csvFileHandler, 'readCsvFile');
   });
   afterEach(() => {
@@ -20,7 +22,7 @@ describe('LandOwnershipRepository', () => {
       expect(() => landOwnershipRepository.load()).toThrow(
         `Could not locate the file: ${dataPath}`
       );
-      expect(landOwnershipRepository.data).toEqual([]);
+      expect(landOwnershipRepository.getAll()).toEqual([]);
     });
 
     it('should have empty data when file has no records', () => {
@@ -28,7 +30,7 @@ describe('LandOwnershipRepository', () => {
       csvFileHandler.readCsvFile.mockReturnValue([]);
       landOwnershipRepository.load();
       expect(readCsvFileSpy).toHaveBeenCalledTimes(1);
-      expect(landOwnershipRepository.data).toEqual([]);
+      expect(landOwnershipRepository.getAll()).toEqual([]);
     });
 
     it('should have load data from file contents', () => {
@@ -36,7 +38,7 @@ describe('LandOwnershipRepository', () => {
       readCsvFileSpy.mockReturnValue(['T54343,C4012', 'T8871,C4012,']);
       landOwnershipRepository.load();
       expect(readCsvFileSpy).toHaveBeenCalledTimes(1);
-      expect(landOwnershipRepository.data).toEqual([
+      expect(landOwnershipRepository.getAll()).toEqual([
         {
           id: 'T54343',
           companyId: 'C4012',
@@ -46,6 +48,15 @@ describe('LandOwnershipRepository', () => {
           companyId: 'C4012',
         },
       ]);
+    });
+
+    it('should NOT read the CSV file if load is called for a second time', () => {
+      fs.existsSync.mockReturnValue(true);
+      readCsvFileSpy.mockReturnValue(['T54343,C4012', 'T8871,C4012,']);
+      landOwnershipRepository.load();
+      landOwnershipRepository.load();
+      landOwnershipRepository.load();
+      expect(readCsvFileSpy).toHaveBeenCalledTimes(1);
     });
   });
 });

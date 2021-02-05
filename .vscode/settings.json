@@ -17,11 +17,13 @@
   "cSpell.words": [
     "Initialise",
     "Scrollable",
+    "Unrecognised",
     "leasle",
     "loglevel",
     "mobx",
     "ooxml",
     "parsererror"
   ],
-  "explorer.compactFolders": false
+  "explorer.compactFolders": false,
+  "prettier.singleQuote": true
 }

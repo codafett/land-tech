@@ -1,6 +1,6 @@
 # Challenge: Corporate Land Ownership
 
-## Install guide
+## Install guide - Production mode
 
 1. Using a command prompt navigate to the project root folder
 2. Install packages with the following command:
@@ -15,12 +15,93 @@ npm i
 npm link
 ```
 
-4. Run the app with the following command
+4. Build the app with the following command
 
 ```
-landtree --<command args>
+npm build
 ```
 
-## Command Arguments
+5. Run the app with the following command
 
-The following commands are available:
+```
+landtree --<command option>=<command value> <args>
+```
+
+## Command Options
+
+The following options are available:
+| Option | Value | Result |
+|--------|---------|-----------|
+| mode | from_root | return results from the root parent of the company id passed in |
+
+## Command Args
+
+The following args are available:
+| Arg | Result |
+|-----------|-----------|
+| companyId | the company id the report is made for
+
+### Usage
+
+Options can be used as follows:
+
+```
+landtree --mode=from_root C10284218421
+```
+
+## Install guide - Developer mode
+
+1. Using a command prompt navigate to the project root folder
+2. Install packages with the following command:
+
+```
+npm i
+```
+
+### Running app
+
+To run the app in dev mode use
+
+```
+npm run start -- --mode=from_root <companyId>
+```
+
+### Running tests
+
+#### Run all tests
+
+To run all tests WITH code coverage use the command:
+
+```
+npm run test
+```
+
+To run all tests in TDD mode use the command:
+
+```
+npm run test:tdd
+```
+
+To run all tests WITHOUT code coverage use the command:
+
+```
+npm run test:nc
+```
+
+To run tests on a specific file use the command:
+
+```
+npm run test:file <file-reg-ex-pattern>
+```
+
+To run all tests on a specific file use the command:
+
+```
+npm run test:file <file-reg-ex-pattern>
+```
+
+To run all tests on a specific file and watch for changes use the command:
+
+```
+npm run test:file:watch <file-reg-ex-pattern>
+```
