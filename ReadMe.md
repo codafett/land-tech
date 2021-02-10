@@ -24,7 +24,7 @@ npm link
 4. Build the app with the following command
 
 ```
-npm build
+npm run build
 ```
 
 5. Run the app with the following command
